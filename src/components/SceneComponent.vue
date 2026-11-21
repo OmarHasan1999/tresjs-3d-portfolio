@@ -80,7 +80,7 @@
   </TresCanvas>
 
 
-  <div class="controls">
+  <!-- <div class="controls">
     <button 
       class="forward-button control-btn" 
       @click="toggleMove('forward')"
@@ -96,7 +96,29 @@
       @click="toggleCamera"
     ><i class="mdi mdi-camera-outline"></i>
 </button>
-  </div>
+  </div> -->
+
+  <div class="controls">
+  <button class="forward-button control-btn" @click="toggleMove('forward')" aria-label="Move forward">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 5l7 7-7 7"/>
+    </svg>
+  </button>
+
+  <button class="backward-button control-btn" @click="toggleMove('backward')" aria-label="Move backward">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M11 19l-7-7 7-7"/>
+    </svg>
+  </button>
+
+  <button class="camera control-btn" @click="toggleCamera" aria-label="Toggle camera">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+      <circle cx="12" cy="13" r="4"/>
+    </svg>
+  </button>
+</div>
+
 </div>
   <div class="social-buttons" aria-hidden="false">
     <a href="https://wa.me/+905318360156" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp">
