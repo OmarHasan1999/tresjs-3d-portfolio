@@ -2,10 +2,10 @@
 
   <div class="scene" v-show="!loading">
 
-  <TresCanvas v-bind="gl" class="three-canvas" shadows>
+  <TresCanvas v-if="loadingScene" v-bind="gl" class="three-canvas" shadows>
         <!-- Stars background  -->
         <Levioso :isMoving="isMoving" :direction="direction" :modelPosition="modelPosition">
-          <Stars :radius="100" :depth="50" :count="3000" :factor="4" :fade="true" />
+          <Stars :radius="100" :depth="50" :count="mobile ? 1000 : 3000" :factor="4" :fade="true" />
           <Stars :radius="50" :depth="8" :count="400" :factor="2" :speed="2" :fade="true" />
         </Levioso>
         <CameraComponent />
@@ -122,12 +122,12 @@
     <div class="progress" :style="{ width: Math.min(Math.max((modelPosition.x - (-35)) / (55 - (-35)) * 100, 0), 100) + '%' }"></div>
   </div>
 
-  -<div class="loading-container" v-if="loading">
+  <!-- <div class="loading-container" v-if="loading">
     <div class="bar-track">
       <div ref="bar" class="bar"></div>
     </div>
     <p id="animeBar">Loading {{ progressText }}</p>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -142,12 +142,14 @@ import { Html, Text3D, Stars, Levioso } from '@tresjs/cientos'
 import { useModelPosition } from '../js/index.js'
 import { EffectComposer } from '@tresjs/post-processing'
 import { BloomEffect } from 'postprocessing'
-import { ref, watch, shallowRef, computed, onMounted, onUnmounted } from 'vue'
-import { animate } from 'animejs'
+import { ref, reactive, watch, shallowRef, computed, onMounted, onUnmounted } from 'vue'
+// import { animate } from 'animejs'
 
-const bar = ref(null)
-const progressText = ref("0%")
-const loading = ref(true)
+// const bar = ref(null)
+// const progressText = ref("0%")
+// const loading = ref(true)
+const loadingScene = ref(false)
+const mobile = ref(window.innerWidth < 600)
 
 const { isMoving, direction, cameraRotateY, modelPosition } = useModelPosition()
 
@@ -162,19 +164,19 @@ const gl = {
 // font of 3D text
 const fontPath = '/fonts/FiraCodeRegular.json'
 
-const sections = [
+const sections = reactive([
   { component: homeSection, position: [-19, 2.7, -5], scale: [1,1,1],  },
   { component: aboutSection, position: [-3.7, 2.5, -5], scale: [1,1,1],  },
   { component: ServicesSection, position: [24, 2.8, -5], scale: [0.8,0.8,0.8] },
   { component: contactSection, position: [45, 2.8, -5], scale: [0.8,0.8,0.8] },
-]
+])      
 
-const arrowObj = [
+const arrowObj = reactive([
   { position: [-32.2, 0.1, -4], rotation: [0, 0, Math.PI / 2] },
   { position: [-31.6, 0.1, -4], rotation: [0, 0, 0] }
-]
+])
 
-const planPos = [
+const planPos = reactive([
   {
     positions : [ -13.5, -0.2, -4 ]
   },
@@ -190,9 +192,9 @@ const planPos = [
   { 
     positions: [ 60, -0.2, -4 ]
   },
-]
+])
 
-const textPos = [
+const textPos = reactive([
   {
     positions : [ -13.5, 0.7, -4 ],
     theText: "About Me"
@@ -218,7 +220,7 @@ const textPos = [
     theText: "THANKS .."
   }
   
-]
+])
 
 // change light color of the sections based on the model position
 const lightColor = computed(() => {
@@ -279,32 +281,38 @@ onMounted(() => {
   setResponsive()
   window.addEventListener('resize', setResponsive)
 
-  // bar animation when loading the page
-  const duration = 3000
-  animate(bar.value, {
-    width: ["0%", "100%"],
-    easing: 'linear',
-    duration: duration,
+  // // bar animation when loading the page
+  // const duration = 3000
+  // animate(bar.value, {
+  //   width: ["0%", "100%"],
+  //   easing: 'linear',
+  //   duration: duration,
 
-  })
+  // })
   
-    const intervalTime = 30
-    let elapsed = 0
-    const timer = setInterval(() => {
-    elapsed += intervalTime
-    let currentProgress = Math.round((elapsed / duration) * 100)
+  //   const intervalTime = 30
+  //   let elapsed = 0
+  //   const timer = setInterval(() => {
+  //   elapsed += intervalTime
+  //   let currentProgress = Math.round((elapsed / duration) * 100)
 
-    if (currentProgress >= 100) {
-      currentProgress = 100
-      clearInterval(timer)
-    }
+  //   if (currentProgress >= 100) {
+  //     currentProgress = 100
+  //     clearInterval(timer)
+  //   }
 
-    progressText.value = `${currentProgress}%`
-  }, intervalTime)
+  //   progressText.value = `${currentProgress}%`
+  // }, intervalTime)
+  // setTimeout(() => {
+  //   loading.value = false
+  // }, duration + 500)
+
   setTimeout(() => {
-    loading.value = false
-  }, duration + 500)
+    loadingScene.value = true
+  }, 100)
   })
+
+  
 
 
 onUnmounted(() => {
@@ -466,7 +474,7 @@ body,
   background-color: #a0f6e4;
   transition: width 1.1s ease;
 }
-
+/* 
 .loading-container {
     position: fixed;
     top: 0;
@@ -503,7 +511,7 @@ body,
   font-weight: 450;
   letter-spacing: 1px;
   color: #a0a0a0;
-}
+} */
 
 @media (max-width:768px) {
   .controls {
