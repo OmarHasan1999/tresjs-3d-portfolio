@@ -1,6 +1,6 @@
 <template>
   <RouterView />
-  <SceneComponent />
+  <SceneComponent :isLoading="loading"/>
 
   <div class="loading-container" v-if="loading">
     <div class="bar-track">
@@ -11,7 +11,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, RouterView, defineAsyncComponent } from 'vue-router'
+import { RouterView } from 'vue-router'
+import { ref, onMounted, defineAsyncComponent } from 'vue'
 import { animate } from 'animejs'
 
 const SceneComponent = defineAsyncComponent(() => import('./components/SceneComponent.vue'))
@@ -26,7 +27,6 @@ onMounted(() => {
     width: ["0%", "100%"],
     easing: 'linear',
     duration: duration,
-
   })
   
     const intervalTime = 30
@@ -42,6 +42,7 @@ onMounted(() => {
 
     progressText.value = `${currentProgress}%`
   }, intervalTime)
+
   setTimeout(() => {
     loading.value = false
   }, duration + 500)
