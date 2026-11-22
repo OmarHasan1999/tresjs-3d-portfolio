@@ -4,7 +4,6 @@
       <div class="servicesCards">
         <div 
           class="card" 
-          ref="servicesCard" 
           v-for="(card, i) in cardData" 
           :key="i"
         >
@@ -23,8 +22,6 @@
 
 <script setup>
 import { ref } from 'vue';
-
-const servicesCard = ref([]);
 
 const cardData = ref([
   {

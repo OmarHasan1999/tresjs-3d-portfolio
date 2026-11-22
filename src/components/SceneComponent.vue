@@ -79,25 +79,6 @@
 
   </TresCanvas>
 
-
-  <!-- <div class="controls">
-    <button 
-      class="forward-button control-btn" 
-      @click="toggleMove('forward')"
-    ><i class="mdi mdi-arrow-right"></i></button>
-
-    <button 
-      class="backward-button control-btn" 
-      @click="toggleMove('backward')"
-    ><i class="mdi mdi-arrow-left"></i></button>
-
-    <button 
-      class="camera control-btn" 
-      @click="toggleCamera"
-    ><i class="mdi mdi-camera-outline"></i>
-</button>
-  </div> -->
-
   <div class="controls">
   <button class="forward-button control-btn" @click="toggleMove('forward')" aria-label="Move forward">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
