@@ -1,5 +1,5 @@
 # use the node image as the base image
-FROM node:18-alpine
+FROM node:22-alpine
 
 # set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # install the dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # copy the rest of the application code to the working directory
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5173
 
 # start the application
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "--host"]
