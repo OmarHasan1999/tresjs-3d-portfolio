@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "name": "Omar Hasan - Interactive 3D Portfolio",
+  "description": "Personal interactive 3D web portfolio built with Vue 3, TresJS, and Three.js, showcasing frontend and creative web development work.",
+  "url": "/",
+  "author": {
+    "name": "Omar Hasan",
+    "url": "https://github.com/OmarHasan1999/"
+  },
+  "resources": [
+    {
+      "id": "home",
+      "name": "Home & Explore",
+      "type": "webpage",
+      "url": "/#home",
+      "description": "Interactive 3D environment introduction and navigation."
+    },
+    {
+      "id": "about",
+      "name": "About Me",
+      "type": "webpage",
+      "url": "/#about",
+      "description": "Background, skills, and frontend engineering experience."
+    },
+    {
+      "id": "services",
+      "name": "Services",
+      "type": "webpage",
+      "url": "/#services",
+      "description": "Web development and interactive 3D UI services."
+    },
+    {
+      "id": "contact",
+      "name": "Contact",
+      "type": "webpage",
+      "url": "/#contact",
+      "description": "Direct contact channels via WhatsApp, GitHub, and Messenger."
+    }
+  ]
+}
