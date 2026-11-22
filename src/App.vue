@@ -45,7 +45,7 @@ onMounted(() => {
 
   setTimeout(() => {
     loading.value = false
-  }, duration + 500)
+  }, duration + 700)
 
 })
 
