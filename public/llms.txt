@@ -1,0 +1,15 @@
+# Omar Hasan - Interactive 3D Portfolio
+
+> Personal interactive 3D web portfolio built with Vue 3, TresJS, and Three.js, showcasing frontend and creative web development work.
+
+## Main Sections
+- [Home & Explore](/#home): Interactive 3D environment introduction and navigation.
+- [About Me](/#about): Background, skills, and frontend engineering experience.
+- [Tech Stack](/#techs): Technologies used including Vue 3, Nuxt, TresJS, and Three.js.
+- [Services](/#services): Web development and interactive 3D UI services.
+- [Contact](/#contact): Ways to get in touch for projects and collaborations.
+
+## Social & Profiles
+- [GitHub](https://github.com/OmarHasan1999/): Open-source repositories and 3D web projects.
+- [WhatsApp](https://wa.me/+905318360156): Direct messaging contact.
+- [Messenger](https://m.me/omar.hamad.18294): Direct contact via Messenger.
