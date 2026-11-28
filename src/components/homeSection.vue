@@ -50,6 +50,7 @@
   width: 128px;
   height: 128px;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .homeContent .img img {
@@ -59,6 +60,8 @@
   border-radius: 50%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   border: 3px solid #ffffff;
+  display: block;
+  object-position: 50% 0%;
 }
 
 .homeContent .homeDescription {
