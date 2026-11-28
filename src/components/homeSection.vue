@@ -47,8 +47,8 @@
 }
 
 .homeContent .img {
-  width: 130px;
-  height: 130px;
+  width: 128px;
+  height: 128px;
   flex-shrink: 0;
 }
 
