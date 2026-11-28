@@ -157,4 +157,12 @@
   background: rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
+
+@media (max-width: 600px) {
+  .homeContent .img {
+  width: 125px;
+  height: 125px;
+  flex-shrink: 0;
+}
+}
 </style>
