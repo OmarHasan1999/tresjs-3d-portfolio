@@ -445,11 +445,11 @@ body,
 @media (max-width:768px) {
   .controls {
     top: 520px;
-    left: 20px;
+    left: 19px;
   }
   .control-btn{
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
   }
   .social-buttons {
     top: 50px;
